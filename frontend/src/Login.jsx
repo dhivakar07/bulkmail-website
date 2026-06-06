@@ -26,7 +26,7 @@ function Login() {
       return;
     }
     axios
-      .post("https://bulkmail-app-cyko.onrender.com/login", {
+      .post(`${import.meta.env.VITE_API_URL}/login`, {
         email: email,
         pass: pass,
       })

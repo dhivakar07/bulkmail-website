@@ -16,14 +16,11 @@ function BulkMail() {
   const handleSend = async () => {
     setstatus(true);
     try {
-      const res = await axios.post(
-        "https://bulkmail-app-cyko.onrender.com/sendmail",
-        {
-          sub: sub,
-          msg: msg,
-          emailList: emailList,
-        },
-      );
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/sendmail`, {
+        sub: sub,
+        msg: msg,
+        emailList: emailList,
+      });
       if (res.data == true) {
         setstatus(false);
         alert("Email Sended Successfully.");
