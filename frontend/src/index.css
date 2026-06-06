@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.login_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    color: rgb(0, 136, 255);
+}
+
+.login_input-box {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.login_input-box h2 {
+    margin-bottom: 20px;
+}
+
+.login_input-box label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.login_input-box input {
+    padding: 10px 12px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.login_input-box button {
+    background: #3b82f6;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login_input-box button:hover {
+    background: #2563eb;
+}
+
+.email-error,
+.password-error {
+    display: none;
+    color: red;
+    font-size: small;
+    margin: 4px;
+}
+
+.email-error.show {
+    display: block;
+}
+
+.password-error.show {
+    display: block;
+}
+
+.bulkmail_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background-color: aliceblue;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: rgb(0, 136, 255);
+    margin-bottom: 10px;
+}
+
+.bulkmail_container {
+    padding: 40px;
+    width: 40%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.595);
+}
+
+.bulkmail_input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+}
+
+.bulkmail_input-box input {
+    width: 96%;
+    height: 30px;
+    outline: none;
+    background-color: rgba(245, 245, 245, 0.564);
+    border: solid rgba(0, 0, 0, 0.574) 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.bulkmail_input-box textarea {
+    width: 96%;
+    height: 200px;
+    outline: none;
+    resize: none;
+    background-color: rgba(245, 245, 245, 0.564);
+    border: solid rgba(0, 0, 0, 0.574) 2px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.bulkmail_input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bulkmail_file-input {
+    display: none;
+}
+
+.bulkmail_file-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 30px;
+    border: 2px solid rgb(0, 136, 255);
+    border-radius: 8px;
+    background-color: transparent;
+    color: rgb(0, 136, 255);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bulkmail_file-btn:hover {
+    background-color: rgb(0, 136, 255);
+    color: white;
+}
+
+.bulkmail_email-count {
+    border: 2px solid rgb(0, 136, 255);
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+.bulkmail_email-count h2 {
+    color: rgb(0, 136, 255);
+}
+
+.bulkmail_send-btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(0, 136, 255);
+}
