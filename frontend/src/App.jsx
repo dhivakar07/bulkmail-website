@@ -1,6 +1,6 @@
-import BulkMail from "./Bulkmail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
+import BulkMail from "./Bulkmail";
 function App() {
   return (
     <>

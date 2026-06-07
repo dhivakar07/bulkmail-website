@@ -8,7 +8,9 @@ function Login() {
 
   const [emailerror, setemailerror] = useState(false);
   const [passerror, setpasserror] = useState(false);
+  const [status, setstatus] = useState(false);
   const handleLogin = () => {
+    setstatus(true);
     let hasError = false;
     if (email.trim() == "") {
       setemailerror(true);
@@ -23,6 +25,7 @@ function Login() {
       setpasserror(false);
     }
     if (hasError) {
+      setstatus(false);
       return;
     }
     axios
@@ -83,7 +86,9 @@ function Login() {
               </span>
             )}
           </div>
-          <button onClick={handleLogin}>Login</button>
+          <button onClick={handleLogin}>
+            {status ? "Logging In.." : "Login"}
+          </button>
         </div>
       </section>
     </>

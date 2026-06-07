@@ -18,6 +18,8 @@ body {
 
 header {
     text-align: center;
+    margin-bottom: 20px;
+    gap: 10px;
 }
 
 header h1 {
@@ -90,23 +92,40 @@ header h1 {
     display: block;
 }
 
+/* navbar */
+.navbar_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    background-color: rgb(0, 136, 255);
+    color: white;
+}
+
+.navbar_signout-btn {
+    background-color: white;
+    color: rgb(0, 136, 255);
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .bulkmail_section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
-    background-color: #eef2ff;
 }
 
-header {
-    margin-bottom: 30px;
-}
-
-header h1 {
-    color: rgb(0, 136, 255);
-    margin-bottom: 5px;
+.bulkmail_section header {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .bulkmail_container {
@@ -198,8 +217,161 @@ header h1 {
     border: none;
     border-radius: 10px;
     background-color: rgb(0, 136, 255);
+    cursor: pointer;
 }
 
+/* email history */
+.history_container {
+    width: 100%;
+    max-width: 80%;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.595);
+    border-radius: 10px;
+}
+
+.history-header {
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.history-header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(0, 136, 255);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.history_container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+
+.history_container thead th:nth-child(1) {
+    width: 18%;
+}
+
+.history_container thead th:nth-child(2) {
+    width: 28%;
+}
+
+.history_container thead th:nth-child(3) {
+    width: 20%;
+}
+
+.history_container thead th:nth-child(4) {
+    width: 14%;
+}
+
+.history_container thead th:nth-child(5) {
+    width: 20%;
+}
+
+.history_container thead th {
+    text-align: start;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #9ca3af;
+    background: #f8f9fc;
+    border-bottom: 0.5px solid gray;
+    white-space: nowrap;
+}
+
+.history_container tbody tr {
+    border-bottom: 1px solid gray;
+    transition: background 0.12s;
+    text-align: start;
+}
+
+.history_container tbody tr:last-child {
+    border-bottom: none;
+}
+
+.history_container tbody tr:hover {
+    background: #f8f9ff;
+}
+
+.history_container tbody td {
+    padding: 10px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Per-cell styles ── */
+.history_sub {
+    font-weight: 600;
+    color: black;
+}
+
+.history_body {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.history_reci {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.history_time {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+/* ── Recipient pill ── */
+.rc-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f5f7ff;
+    border: 0.5px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+/* ── Status pills ── */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pill.success {
+    background: #EAF3DE;
+    color: #3B6D11;
+}
+
+.status-pill.failed {
+    background: #FCEBEB;
+    color: #A32D2D;
+}
 
 
 @media (max-width: 1024px) {
@@ -239,10 +411,6 @@ header h1 {
     .bulkmail_container {
         padding: 30px;
         width: 60%;
-    }
-
-    header h1 {
-        font-size: 24px;
     }
 
     header p {
@@ -288,6 +456,19 @@ header h1 {
     .bulkmail_send-btn {
         height: 40px;
     }
+
+    .history_container {
+        max-width: 80%;
+        padding: 1rem;
+    }
+
+    .history_container thead th:nth-child(2) {
+        width: 24%;
+    }
+
+    .history_container thead th:nth-child(3) {
+        width: 18%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -329,17 +510,29 @@ header h1 {
         font-size: 10px;
     }
 
+    .navbar_header h1 {
+        font-size: 20px;
+    }
+
+    .navbar_signout-btn {
+        padding: 3px;
+        font-weight: 700;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
     .bulkmail_container {
         padding: 20px;
         width: 80%;
     }
 
-    header h1 {
-        font-size: 18px;
-    }
-
     header p {
         font-size: 14px;
+    }
+
+    .bulkmail_section header {
+        margin-top: 0;
+        margin-bottom: 20px;
     }
 
     .bulkmail_input-box input {
@@ -380,5 +573,26 @@ header h1 {
 
     .bulkmail_send-btn {
         height: 40px;
+    }
+
+    .history_container {
+        width: 80%;
+        padding: 1rem;
+        border-radius: 12px;
+        margin: 1rem auto;
+    }
+
+    .history_container table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .history_container thead th,
+    .history_container tbody td {
+        padding: 8px 10px;
+    }
+
+    .history-header h2 {
+        font-size: 13px;
     }
 }

@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import * as XLSX from "xlsx";
+import Navbar from "./Navbar";
 function BulkMail() {
   const [sub, setsub] = useState("");
   const [msg, setmsg] = useState("");
   const [status, setstatus] = useState(false);
   const [emailList, setemailList] = useState([]);
+  const [history, setHistory] = useState([]);
   const handleChange = (event) => {
     setmsg(event.target.value);
   };
@@ -33,15 +35,29 @@ function BulkMail() {
         msg: msg,
         emailList: emailList,
       });
-      if (res.data == true) {
-        setstatus(false);
-        alert("Email Sended Successfully.");
-        setmsg("");
+      if (res.data === true) {
+        alert("Email Sent Successfully.");
+        console.log(res.data);
+        setHistory((data) => [
+          {
+            subject: sub,
+            body: msg,
+            recipients: emailList,
+            status: "Success",
+            sentAt: new Date().toLocaleString(),
+          },
+          ...data,
+        ]);
         setsub("");
+        setmsg("");
+      } else {
+        alert("Failed to send");
       }
     } catch (err) {
       console.log(err);
       alert("Email Failed To Send");
+    } finally {
+      setstatus(false);
     }
   };
 
@@ -67,9 +83,9 @@ function BulkMail() {
 
   return (
     <>
+      <Navbar />
       <section className="bulkmail_section">
         <header>
-          <h1>✉ BulkMail</h1>
           <p>We can help your business with sending multiple emails at once</p>
         </header>
         <div className="bulkmail_container">
@@ -79,6 +95,7 @@ function BulkMail() {
               type="text"
               placeholder="Enter your subject"
               onChange={handleSub}
+              value={sub}
             />
             <label htmlFor="compose">Compose Email</label>
             <textarea
@@ -111,6 +128,55 @@ function BulkMail() {
             {status ? "Sending.." : "Send"}
           </button>
         </div>
+      </section>
+      <section className="history_container">
+        <div className="history-header">
+          <h2>📜 Email history</h2>
+        </div>
+        {history.length === 0 ? (
+          <p className="empty-state">No emails sent yet.</p>
+        ) : (
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Body</th>
+                  <th>Recipients</th>
+                  <th>Status</th>
+                  <th>Sent at</th>
+                </tr>
+              </thead>
+              <tbody>
+                {history.map((item, id) => (
+                  <tr key={id}>
+                    <td className="history_sub" title={item.subject}>
+                      {item.subject}
+                    </td>
+                    <td className="history_body" title={item.body}>
+                      {item.body}
+                    </td>
+                    <td className="history_reci">
+                      <span className="rc-pill">
+                        👥 {item.recipients.length} recipients
+                      </span>
+                    </td>
+                    <td className="history_status">
+                      <span
+                        className={`status-pill ${item.status === "Success" ? "success" : "failed"}`}
+                      >
+                        {item.status === "Success" ? "✓" : "✕"} {item.status}
+                      </span>
+                    </td>
+                    <td className="history_time">
+                      {new Date(item.sentAt).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
     </>
   );
