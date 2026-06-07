@@ -13,6 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #eef2ff;
 }
 
 header {
@@ -95,21 +96,21 @@ header h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px;
-    background-color: aliceblue;
+    height: 100vh;
+    background-color: #eef2ff;
 }
 
 header {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 header h1 {
     color: rgb(0, 136, 255);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .bulkmail_container {
-    padding: 40px;
+    padding: 30px;
     width: 40%;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -197,4 +198,187 @@ header h1 {
     border: none;
     border-radius: 10px;
     background-color: rgb(0, 136, 255);
+}
+
+
+
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .login_input-box {
+        padding: 20px 15px;
+        width: 300px;
+    }
+
+    .login_input-box label {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .login_input-box input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .login_input-box button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .email-error,
+    .password-error {
+        font-size: 12px;
+    }
+
+    .bulkmail_container {
+        padding: 30px;
+        width: 60%;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    .bulkmail_input-box input {
+        height: 30px;
+        padding: 5px 4px;
+        font-size: 16px;
+    }
+
+    .bulkmail_input-box label {
+        font-size: 16px;
+    }
+
+    .bulkmail_input-box textarea {
+        height: 150px;
+        padding: 4px;
+        font-size: 16px;
+    }
+
+    .bulkmail_file-btn {
+        gap: 5px;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+
+    .bulkmail_email-count {
+        padding: 2px;
+    }
+
+    .bulkmail_email-count h2 {
+        font-size: 16px;
+    }
+
+    .bulkmail_email-count p {
+        font-size: 13px;
+    }
+
+    .bulkmail_send-btn {
+        height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .login_input-box {
+        padding: 20px 15px;
+        width: 80%;
+    }
+
+    .login_input-box h2 {
+        font-size: 18px;
+    }
+
+    .login_input-box label {
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .login_input-box input {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .login_input-box button {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .email-error,
+    .password-error {
+        font-size: 10px;
+    }
+
+    .bulkmail_container {
+        padding: 20px;
+        width: 80%;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .bulkmail_input-box input {
+        height: 25px;
+        padding: 5px 4px;
+        font-size: 14px;
+    }
+
+    .bulkmail_input-box label {
+        font-size: 14px;
+    }
+
+    .bulkmail_input-box textarea {
+        height: 100px;
+        padding: 4px;
+        font-size: 14px;
+    }
+
+    .bulkmail_file-btn {
+        gap: 5px;
+        padding: 8px;
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+
+    .bulkmail_email-count {
+        padding: 2px;
+    }
+
+    .bulkmail_email-count h2 {
+        font-size: 13px;
+    }
+
+    .bulkmail_email-count p {
+        font-size: 11px;
+    }
+
+    .bulkmail_send-btn {
+        height: 40px;
+    }
 }

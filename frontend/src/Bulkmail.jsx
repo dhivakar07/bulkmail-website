@@ -14,6 +14,18 @@ function BulkMail() {
   };
 
   const handleSend = async () => {
+    if (sub.trim() === "") {
+      alert("Please fill in the Subject field.");
+      return;
+    }
+    if (msg.trim() === "") {
+      alert("Please fill in the Compose field.");
+      return;
+    }
+    if (!emailList || emailList.length === 0) {
+      alert("Please import a recipient email list.");
+      return;
+    }
     setstatus(true);
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/sendmail`, {
@@ -91,7 +103,11 @@ function BulkMail() {
               <p>Total email in the file</p>
             </div>
           </div>
-          <button className="bulkmail_send-btn" onClick={handleSend}>
+          <button
+            className="bulkmail_send-btn"
+            onClick={handleSend}
+            disabled={status}
+          >
             {status ? "Sending.." : "Send"}
           </button>
         </div>
