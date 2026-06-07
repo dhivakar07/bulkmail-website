@@ -40,6 +40,7 @@ function Login() {
           alert("Enter the correct admin email and password.");
           setemail("");
           setpass("");
+          setstatus(false);
         }
       });
   };
